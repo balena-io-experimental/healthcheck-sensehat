@@ -1,0 +1,23 @@
+{
+  "name": "healthcheck-sensehat",
+  "version": "1.0.0",
+  "description": "Demo of Docker HEALTHCHECK with a SenseHAT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "pretty-quick --staged"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "keep-running": "^0.1.2",
+    "lodash": "^4.17.10",
+    "sense-hat-led": "^1.0.1",
+    "sense-joystick": "^0.0.2"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "prettier": "^1.12.1",
+    "pretty-quick": "^1.4.1"
+  }
+}
