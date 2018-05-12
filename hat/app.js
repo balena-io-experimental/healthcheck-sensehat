@@ -6,7 +6,7 @@ const lockFile = require("lockfile");
 
 var X = [255, 0, 0]; // Red
 var O = [0, 0, 0]; // Black
-var V = [0, 120, 120]; // Vaderer
+var W = [0, 120, 120]; // Waderer
 
 var ITERATING = true;
 var PIXEL_WIDTH = 8;
@@ -56,7 +56,7 @@ var newMove = location => {
   } while (newlocation === null);
   if (ITERATING) {
     // If things are okay, display changes, and schedule the next move
-    display(newlocation, V);
+    display(newlocation, W);
     setTimeout(() => newMove(newlocation), 100);
   } else {
     // If things are broken, show that
@@ -75,7 +75,7 @@ joystick.getJoystick().then(j => {
 
 // Start the moves
 const startingLocation = [_.random(7), _.random(7)];
-display(startingLocation, V);
+display(startingLocation, W);
 newMove(startingLocation);
 
 keepRunning.init()(() => console.log("Let's get moving..."));
