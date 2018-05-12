@@ -11,6 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "keep-running": "^0.1.2",
+    "lockfile": "^1.0.4",
     "lodash": "^4.17.10",
     "sense-hat-led": "^1.0.1",
     "sense-joystick": "^0.0.2"

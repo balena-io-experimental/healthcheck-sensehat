@@ -2,7 +2,7 @@ const keepRunning = require("keep-running");
 const led = require("sense-hat-led");
 const joystick = require("sense-joystick");
 const _ = require("lodash");
-const fs = require("fs");
+const lockFile = require("lockfile");
 
 var X = [255, 0, 0]; // Red
 var O = [0, 0, 0]; // Black
@@ -12,6 +12,7 @@ var ITERATING = true;
 var PIXEL_WIDTH = 8;
 
 const workingFile = "/tmp/working";
+lockFile.lockSync(workingFile);
 
 led.clear(0);
 
@@ -68,12 +69,9 @@ var newMove = location => {
 joystick.getJoystick().then(j => {
   j.on("press", direction => {
     ITERATING = false;
-    fs.unlinkSync(workingFile);
+    lockFile.unlockSync(workingFile);
   });
 });
-
-// Set up healthcheck file
-fs.closeSync(fs.openSync(workingFile, "w"));
 
 // Start the moves
 const startingLocation = [_.random(7), _.random(7)];
