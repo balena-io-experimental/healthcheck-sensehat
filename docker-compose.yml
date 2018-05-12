@@ -2,9 +2,6 @@ version: '2'
 services:
   hat:
     build: ./hat
+    # Needs privileged for the hardware control of the SenseHAT
+    # TODO: figure out a more reduced seet of privileges
     privileged: true
-    # devices:
-    #   - "/dev/i2c-1:/dev/i2c-1"
-    #   - "/dev/mem:/dev/mem"
-    # cap_add:
-    #   - SYS_RAWIO
